@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{imakeidx}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\lstset{
+	language=C,
+	backgroundcolor=\color{lightgray},
+	showspaces=false,
+	showtabs=false,
+	breaklines=true,
+	showstringspaces=false,
+	breakatwhitespace=true,
+  	commentstyle = \color{ForestGreen},
+	stringstyle = \color{green},
+	identifierstyle = \color{blue},
+ 	keywordstyle = \color{orange},
+%	morekeywords = {}% list your attributes here
+}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue
+}
+
+
+\title{
+    {Easy RAID}
+    {\author{Vallone Giuliano}}
+    {\date{}}
+}
+
+\makeindex
+
+\begin{document}
+\maketitle
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Cos'è il RAID}
+In informatica il RAID ("Redundant Array of Independent Disks") è una tecnica di installazione raggruppata di diversi dischi rigidi (l'insieme dei dischi viene chiamato array RAID) in un computer (o collegati ad esso) che fa sì che appaiano e siano utilizzabili come se fossero un unico volume di memorizzazione.\\
+I suoi scopi sono: 
+\begin{itemize}
+\item aumentare le performance
+\item rendere il sistema resiliente alla perdita di uno o più dischi e poterli rimpiazzare senza interrompere il servizio.
+\end{itemize}
+Il RAID sfrutta, con modalità differenti a seconda del tipo di realizzazione, i principi di ridondanza dei dati e di parallelismo nel loro accesso per garantire, rispetto ad un disco singolo, incrementi di prestazioni, aumenti nella capacità di memorizzazione disponibile, miglioramenti nella tolleranza ai guasti e quindi maggiore affidabilità.
+
+\section{Tipi di RAID}
+Esistono tre modi per realizzare un RAID:
+\begin{itemize}
+\item Hardware: l'array di dischi viene gestito direttamente da una scheda dedicata che viene installata sul PC. La logica del RAID viene gestita da un processore presente sulla scheda indipendentemente dalla CPU del sistema host. Questa soluzione, oltre che dal resto dell'hardware, è indipendente anche dal sistema operativo, ma per funzionare correttamente richiede l'installazione del driver apposito per poter funzionare correttamente. L'array viene configurato o tramite un interfaccia ROM (simil-BIOS) oppure da un'applicazione dedicata installata sul sistema operativo, il quale non vede i dischi separati.
+\item Fakeraid: propriamente chiamato BIOS o Onboard RAID, viene gestito da dei simil controller RAID la cui logica è implementata in una ROM sulla scheda madre o direttamente nel firmware stesso (e.g EFI SataDriver in UEFI), ma non sono dei veri e propri contoller RAID con tutte le funzionalità implementate. Questo, in Linux, viene gestito con dmraid.
+\item Software: è il metodo più semplice e il più diffuso in quanto non richiede hardware specializzato, ma viene gestito dal sistema operativo. Ci sono diversi metodi per la realizzazione del RAID (e.g. mdadm, lvm, zfs)
+\end{itemize}
+
+\section{Livelli RAID}
+\subsection{Standard}
+\subsubsection{RAID 0}
+\subsubsection{RAID 1}
+\subsubsection{RAID 2}
+\subsubsection{RAID 3}
+\subsubsection{RAID 4}
+\subsubsection{RAID 5}
+\subsubsection{RAID 6}
+
+
+\subsection{Annidati}
+\subsubsection{RAID 0+1}
+\subsubsection{RAID 0+3}
+\subsubsection{RAID 1+0}
+\subsubsection{RAID 1+6}
+\subsubsection{RAID 5+0}
+\subsubsection{RAID 6+0}
+\subsubsection{RAID 10+0}
+\subsection{Non-Standard}
+\subsubsection{Double Parity}
+\subsubsection{Intel Matrix RAID}
+\subsubsection{Linux MD RAID 10}
+\subsubsection{RAID-Z}
+
+\subsection{Confronto tra i vari livelli}
+
+\section{HOWTOs}
+\subsection{mdadm}
+\subsection{LVM}
+\subsection{ZFS}
+\subsection{dmraid}
+\subsection{Hardware con HP ...}
+\end{document}

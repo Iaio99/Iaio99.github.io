@@ -1,0 +1,15 @@
+Guida per container Debian
+apt install apache2 certbot python3-certbot-apache openssh-client git
+Creare il file /root/.ssh/config
+        Host github-sito
+                HostName        github.com
+                IdentityFile    /root/.ssh/id_rsa_anakin
+
+Clonare il sito: git@github-sito:Roma2Lug-Projects/sito_final.git /var/www/html
+Creare il file di configurazione del sito per Apache
+Abilitare il sito
+Configurare il portforwarding per http e https
+Ottenere i certificati tramite certbot
+Abilitare ssl su Apache
+a2enmod ssl
+a2enmod headers
